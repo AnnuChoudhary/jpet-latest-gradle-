@@ -57,10 +57,10 @@ dependencies {
 }
 
  task deploy(dependsOn: build) << {
-    println "Copy from ${libsDir.getPath()} into ${tomcatHome}/webapps"
+    println "Copy from /var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/ into /usr/local/tomcat/webapps"
     copy{
       from "/var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/"
-      into "${tomcatHome}/webapps"
+      into "/usr/local/tomcat/webapps"
       include '*.war'
     }
   }
