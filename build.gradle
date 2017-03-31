@@ -56,13 +56,14 @@ dependencies {
     
 }
 
-task deploy (dependsOn: war){
-    copy {
-        from "/var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/"
-        into "/usr/local/tomcat/webapps"
-        include "*.war"
+ task deploylocal(dependsOn: build) << {
+    println "Copy from ${libsDir.getPath()} into ${tomcatHome}/webapps"
+    copy{
+      from "/var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/"
+      into "${tomcatHome}/webapps"
+      include '*.war'
     }
-}
+  }
 
 uploadArchives {
   repositories {
