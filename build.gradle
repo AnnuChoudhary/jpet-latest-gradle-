@@ -56,7 +56,7 @@ dependencies {
     
 }
 
-deploy (dependsOn: war){
+task deploy (dependsOn: war){
     copy {
         from "build/libs"
         into "/usr/share/tomcat7/webapps"
