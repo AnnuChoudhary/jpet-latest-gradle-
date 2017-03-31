@@ -56,10 +56,7 @@ dependencies {
     
 }
 
- task deploy(dependsOn: build) << {
-    println "Copy from /var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/ into /usr/local/tomcat/webapps"
-    sh 'cp /var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/ /usr/local/tomcat/webapps'
-  }
+
 
 uploadArchives {
   repositories {
