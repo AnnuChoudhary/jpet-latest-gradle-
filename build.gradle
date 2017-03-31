@@ -59,7 +59,7 @@ dependencies {
 task deploy (dependsOn: war){
     copy {
         from "/var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/"
-        into "/usr/share/tomcat/webapps"
+        into "/usr/local/tomcat/webapps"
         include "*.war"
     }
 }
