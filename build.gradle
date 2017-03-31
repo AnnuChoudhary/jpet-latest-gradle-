@@ -56,6 +56,13 @@ dependencies {
     
 }
 
+deploy (dependsOn: war){
+    copy {
+        from "build/libs"
+        into "/usr/share/tomcat7/webapps"
+        include "jpetstore-6.0.3-SNAPSHOT.war"
+    }
+}
 
 uploadArchives {
   repositories {
