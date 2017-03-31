@@ -58,11 +58,7 @@ dependencies {
 
  task deploy(dependsOn: build) << {
     println "Copy from /var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/ into /usr/local/tomcat/webapps"
-    copy{
-      from "/var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/"
-      into url: "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"
-      include '*.war'
-    }
+    sh 'cp /var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/ /usr/local/tomcat/webapps'
   }
 
 uploadArchives {
