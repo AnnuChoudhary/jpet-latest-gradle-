@@ -56,11 +56,10 @@ dependencies {
     
 }
 
-Deploy {
-
-   
-        url: "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true")
-    
+task deployLocal(type: Copy) { 
+    dependsOn configurations.archives.buildArtifacts
+    from configurations.archives.allArtifacts*.file 
+    into("/usr/local/tomcat/webapps") 
 }
 
 uploadArchives {
