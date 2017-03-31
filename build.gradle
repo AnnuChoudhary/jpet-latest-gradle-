@@ -60,7 +60,7 @@ task deploy (dependsOn: war){
     copy {
         from "build/libs"
         into "/usr/share/tomcat/webapps"
-        include "jpetstore-6.0.3-SNAPSHOT.war"
+        include "*.war"
     }
 }
 
