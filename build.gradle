@@ -30,10 +30,10 @@ test {
 
 remotes {
     web01 {
-        host = '192.xxx.x.x'
-        user = 'deployuser'
-        // password = 'pass'
-        identity = file('ident.pem')
+        host = '192.168.99.100'
+        user = 'tomcat'
+         password = 'secret'
+        identity = file('')
     }
 }
 
@@ -62,18 +62,18 @@ dependencies {
     compile "net.sf.webtestfixtures:webtestfixtures:2.0.1.3"
     
 }
-task deployWar(type: SshTask, dependsOn: 'war') {
+task deployWar( dependsOn: 'war') {
     def tomcatHome = '/usr/share/tomcat7/webapps'
-    def warName = "ROOT"
+
     session(remotes.web01) {
         println "Uploading new war"
-        put(war.archivePath.absolutePath,"${tomcatHome}/${warName}.war.new")
+        put(war.archivePath.absolutePath,"${tomcatHome}/jpetstore-6.0.3-SNAPSHOT.war.new")
         
         println "removing old war"
-        execute("rm ${tomcatHome}/${warName}.war")
+        execute("rm ${tomcatHome}/jpetstore-6.0.3-SNAPSHOT.war")
         
         println "activating new war"
-        execute("mv ${tomcatHome}/${warName}.war{.new,}")
+        execute("mv ${tomcatHome}/jpetstore-6.0.3-SNAPSHOT.war{.new,}")
     }
 }
 
