@@ -56,7 +56,7 @@ dependencies {
     
 }
 
- task deploylocal(dependsOn: build) << {
+ task deploy(dependsOn: build) << {
     println "Copy from ${libsDir.getPath()} into ${tomcatHome}/webapps"
     copy{
       from "/var/jenkins_home/workspace/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/"
