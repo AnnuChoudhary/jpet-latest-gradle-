@@ -57,9 +57,15 @@ dependencies {
 }
 
 task deployLocal(type: Copy) { 
-    dependsOn configurations.archives.buildArtifacts
-    from configurations.archives.allArtifacts*.file 
-    into("/usr/local/tomcat/webapps") 
+    repositories {
+    mavenDeployer {
+      repository(
+        url: "http://192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true") {
+          authentication(userName: "tomcat", password: "secret")
+      }
+      
+    }
+}
 }
 
 uploadArchives {
