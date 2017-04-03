@@ -57,7 +57,7 @@ dependencies {
 }
 task deploy(type: Exec) {
  
-   args 'curl', "--upload-file target/jpetstore.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true""
+   args 'curl', '--upload-file target/jpetstore.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"'
 }
 
 
