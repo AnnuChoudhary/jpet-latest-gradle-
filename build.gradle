@@ -57,7 +57,10 @@ dependencies {
 }
 task deploy {
  
-   args 'curl', '--upload-file target/jpetstore.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"'
+   curl -v -X PUT                    
+  --user tomcat:secret         
+  --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war
+http://192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true
 }
 
 
