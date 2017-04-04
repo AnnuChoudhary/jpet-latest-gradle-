@@ -55,7 +55,7 @@ dependencies {
     compile "net.sf.webtestfixtures:webtestfixtures:2.0.1.3"
     
 }
-task deploy(type: Wrappers) {
+task deploy(type: Exec) {
  executable "sh"
 '$ curl --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"'
 
