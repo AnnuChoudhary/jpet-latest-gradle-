@@ -3,19 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'war'
 
 
-archivesBaseName    = 'foo-bar'
-version             = '1.0'
-sourceCompatibility = JavaVersion.VERSION_1_6
-targetCompatibility = JavaVersion.VERSION_1_6
 
-sourceSets.main.resources.exclude 'foo.jks'
-
-compileJava{
-    println project.sourceCompatibility 
-    println project.targetCompatibility 
-    println sourceCompatibility 
-    println targetCompatibility 
-}
 
 group = 'org.mybatis'
 version = '6.0.3-SNAPSHOT'
@@ -37,13 +25,6 @@ repositories {
 
 test {
 	ignoreFailures = true
-}
-sourceSets {
-        main {
-            java {
-                srcDir 'org'
-            }
-        }
 }
 
 
@@ -74,15 +55,12 @@ dependencies {
     compile "net.sf.webtestfixtures:webtestfixtures:2.0.1.3"
     
 }
-dependencies {
-    def tomcatVersion = '8'
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
-    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
-        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
-    }
-}
+task deploy(type: Exec) {
+  executable "sh"
+  println "xyz"
 
+ curl --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"
+ }
 
 
 uploadArchives {
