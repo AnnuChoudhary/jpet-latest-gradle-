@@ -12,11 +12,11 @@ description = """JPetStore Demo 6"""
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
-tasks.withType(Compile) {
-    options.bootClasspath = "$JDK6_HOME/jre/lib/rt.jar"
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+	 options.bootClasspath = "$JDK6_HOME/jre/lib/rt.jar"
 }
-
-
 
 configurations.all {
 }
