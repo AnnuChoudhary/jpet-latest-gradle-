@@ -68,7 +68,7 @@ dependencies {
 }
 cargo {
     containerId = 'tomcat7x'
-    port='8888'
+    port="8888"
    // <== the webapp response port, typically 8080, in this case it is not 8080
       deployable {
         file = file("jpetstore-6.0.3-SNAPSHOT.war")
@@ -78,9 +78,9 @@ cargo {
       remote {
 // the deployable above knows this is the remote to use correct?, why is port not specified here?
         protocol=scheme
-        hostname='192.168.99.100'
-        username='tomcat'
-        password='secret'
+        hostname="192.168.99.100"
+        username="tomcat"
+        password="secret"
     }
 }
 
