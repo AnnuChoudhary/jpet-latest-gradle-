@@ -15,7 +15,7 @@ targetCompatibility = 1.6
 
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
-	 options.bootClasspath = "$JDK6_HOME/jre/lib/rt.jar"
+	 options.bootClasspath = "$JDK_HOME/jre/lib/rt.jar"
 }
 
 configurations.all {
