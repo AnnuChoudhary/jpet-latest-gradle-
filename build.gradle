@@ -31,7 +31,7 @@ test {
 sourceSets {
         main {
             java {
-                srcDir 'src'
+                srcDir 'org'
             }
         }
 }
