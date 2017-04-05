@@ -3,20 +3,26 @@ apply plugin: 'maven'
 apply plugin: 'war'
 
 
+archivesBaseName    = 'foo-bar'
+version             = '1.0'
+sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+
+sourceSets.main.resources.exclude 'foo.jks'
+
+compileJava{
+    println project.sourceCompatibility 
+    println project.targetCompatibility 
+    println sourceCompatibility 
+    println targetCompatibility 
+}
+
 group = 'org.mybatis'
 version = '6.0.3-SNAPSHOT'
 
 description = """JPetStore Demo 6"""
 
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
-
-
-tasks.withType(JavaCompile) {
-	options.encoding = 'UTF-8'
-	 options.bootClasspath = "$JAVA_HOME"
-}
 
 configurations.all {
 }
