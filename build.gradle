@@ -46,7 +46,7 @@ sourceSets {
         }
 }
 
-apply plugin: 'com.bmuschko.tomcat'
+
 
 dependencies {
  classpath 'com.bmuschko:gradle-tomcat-plugin:2.0'
