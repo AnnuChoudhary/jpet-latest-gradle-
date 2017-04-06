@@ -71,7 +71,28 @@ dependencies {
 
 task deployToDev{
     
+dependsOn war
+    println "Starting Cargo"
+    println "Using war from: build/libs/jpetstore-6.0.3-SNAPSHOT.war"
 
+    cargo {
+    containerId = 'tomcat7x'
+
+   // <== the webapp response port, typically 8080, in this case it is not 8080
+      deployable {
+        file = file("/build/libs/jpetstore-6.0.3-SNAPSHOT.war")
+        context = "web_context"
+        // it would be very nice to specify a remote to use here (if I have multiple remotes)
+    }
+      remote {
+// the deployable above knows this is the remote to use correct?, why is port not specified here?
+        protocol="scheme"
+        hostname="192.168.99.100"
+	
+        username="tomcat"
+        password="secret"
+    }
+}
  println "curl  --upload-file /build/libs/jpetstore-6.0.3-SNAPSHOT.war http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true".execute().text
 }
 
