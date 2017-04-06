@@ -94,7 +94,7 @@ dependsOn war
     }
 }
 
-println "curl -u tomcat:secret --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war http://192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true".execute().text
+println "curl -u tomcat:secret --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war http://192.168.99.100:8888/manager/text/deploy?path=/jpetstore-6.0.3-SNAPSHOT.war&update=true".execute().text
 }
 
 
