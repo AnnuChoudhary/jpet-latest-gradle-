@@ -70,7 +70,7 @@ dependencies {
 
 
 task deployToDev{
-    dependsOn war, tomcatStop, deleteDirDev
+    dependsOn war
     println "Starting Cargo"
     println "Using war from: build/libs/jpetstore-6.0.3-SNAPSHOT.war.war"
 
