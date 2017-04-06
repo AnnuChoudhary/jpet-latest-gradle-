@@ -79,7 +79,7 @@ task deployToDev{
 
    // <== the webapp response port, typically 8080, in this case it is not 8080
       deployable {
-        file = file("jpetstore-6.0.3-SNAPSHOT.war")
+        file = file("/build/libs/jpetstore-6.0.3-SNAPSHOT.war")
         context = "web_context"
         // it would be very nice to specify a remote to use here (if I have multiple remotes)
     }
@@ -93,7 +93,7 @@ task deployToDev{
     }
 }
 
- println "curl -u tomcat:secret --upload-file /var/jenkins_home/jobs/newpipeline(gradle)/lastSuccessfulBuild/artifact/build/libs/jpetstore-6.0.3-SNAPSHOT.war http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true".execute().text
+ println "curl -u tomcat:secret --upload-file /build/libs/jpetstore-6.0.3-SNAPSHOT.war http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true".execute().text
 }
 
 
