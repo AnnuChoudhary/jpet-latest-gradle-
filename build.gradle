@@ -92,7 +92,7 @@ task deployToDev{
         password="secret"
     }
 }
-    tomcatRunWar
+ 
 }
 
 uploadArchives {
