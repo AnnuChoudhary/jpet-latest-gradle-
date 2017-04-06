@@ -80,7 +80,7 @@ dependsOn war
 
    // <== the webapp response port, typically 8080, in this case it is not 8080
       deployable {
-        file = file("/build/libs/jpetstore-6.0.3-SNAPSHOT.war")
+        file = file("jpetstore-6.0.3-SNAPSHOT.war")
         context = "web_context"
         // it would be very nice to specify a remote to use here (if I have multiple remotes)
     }
