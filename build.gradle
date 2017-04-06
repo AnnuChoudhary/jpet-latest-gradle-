@@ -87,11 +87,12 @@ task deployToDev{
 // the deployable above knows this is the remote to use correct?, why is port not specified here?
         protocol="scheme"
         hostname="192.168.99.100"
-	
+	url=""
         username="tomcat"
         password="secret"
     }
 }
+ curl --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"
  
 }
 
