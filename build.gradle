@@ -93,7 +93,7 @@ task deployToDev{
     }
 }
 
-  println " $curl --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war '"http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"'"
+  println " " +$curl --upload-file build/libs/jpetstore-6.0.3-SNAPSHOT.war "http://tomcat:secret@192.168.99.100:8888/manager/text/deploy?path=/jpetstore&update=true"
 }
 
 uploadArchives {
