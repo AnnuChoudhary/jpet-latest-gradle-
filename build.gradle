@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'war'
-apply plugin: 'com.bmuschko.cargo'
+apply plugin: 'cargo'
 
 
 
@@ -35,7 +35,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "com.bmuschko:gradle-cargo-plugin:2.2.3"
+    classpath "org.gradle.api.plugins:gradle-cargo-plugin:0.6"
   }
 }
 
